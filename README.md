@@ -99,10 +99,3 @@ This project favors a straightforward, single-file procedural design and has sev
 - **Hard-coded sample data** — venues, events, dates, and seat pricing are hard-coded into `main()` rather than loaded from a configuration source or database.
 - **Single-threaded UI with cosmetic concurrency** — `Payment` and `Ticket` run on real threads, but the main thread blocks on `join()` immediately afterward, so there is no actual concurrent benefit; it's used purely to simulate processing delay.
 
-## Suggested Next Steps
-
-- Extract the booking workflow in `TicketApp` into a dedicated service class to reduce duplication across the four category branches in `booktickets()`.
-- Replace console I/O with a layered design (e.g. separate UI, service, and data layers) to make the system testable.
-- Add persistent storage (file-based or a database) so data survives restarts.
-- Hash and salt stored passwords.
-- Add unit tests for pricing, rating calculation, and seat availability logic.
